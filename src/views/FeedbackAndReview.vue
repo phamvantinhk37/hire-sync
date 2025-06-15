@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div>
+  <div class="container">
     <p>This is Feedback and Review</p>
   </div>
 </template>

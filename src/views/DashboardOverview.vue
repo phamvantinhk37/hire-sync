@@ -1,12 +1,15 @@
 <script setup lang="ts">
-  import {Button} from "primevue";
 </script>
 
 <template>
- <div>
-   <p>This is Dashboard overview</p>
-   <Button label="Submit"></Button>
- </div>
+  <div class="container">
+    <p>This is Dashboard overview</p>
+  </div>
+  <template>
+    <h1 class="text-3xl font-bold underline">
+      Hello world!
+    </h1>
+  </template>
 </template>
 
 <style scoped>
