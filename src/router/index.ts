@@ -6,16 +6,46 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: HomeView,
-    },
-    {
-      path: '/about',
-      name: 'about',
+      name: 'dashboard',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue'),
+      component: () => import('../views/DashboardOverview.vue'),
+    },
+    {
+      path: '/user-listing',
+      name: 'userListing',
+      component: () => import('../views/UserListing.vue'),
+    },
+    {
+      path: '/job-listing',
+      name: 'jobListing',
+      component: () => import('../views/JobListing.vue'),
+    },
+    {
+      path: '/company-listing',
+      name: 'companyListing',
+      component: () => import('../views/CompanyListing.vue'),
+    },
+    {
+      path: '/feedback',
+      name: 'feedback',
+      component: () => import('../views/FeedbackAndReview.vue'),
+    },
+    {
+      path: '/job-application',
+      name: 'jobApplication',
+      component: () => import('../views/JobApplication.vue'),
+    },
+    {
+      path: '/role-permission',
+      name: 'rolePermission',
+      component: () => import('../views/RoleAndPermission.vue'),
+    },
+    {
+      path: '/setting',
+      name: 'setting',
+      component: () => import('../views/SystemAndSetting.vue'),
     },
   ],
 })
