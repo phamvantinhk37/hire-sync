@@ -1,10 +1,11 @@
 <script setup lang="ts">
 
+import UnderConstruction from "@/components/UnderConstruction.vue";
 </script>
 
 <template>
-  <div class="container">
-    <p>This is Feedback and Review</p>
+  <div>
+    <UnderConstruction></UnderConstruction>
   </div>
 </template>
 

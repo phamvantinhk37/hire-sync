@@ -1,10 +1,11 @@
 <script setup lang="ts">
 
+import TableView from "@/components/TableView.vue";
 </script>
 
 <template>
-  <div class="container">
-    <p>this is User Listing</p>
+  <div>
+    <TableView></TableView>
   </div>
 </template>
 

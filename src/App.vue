@@ -1,26 +1,26 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
 import NavBar from "@/components/NavBar.vue";
-import Header from "@/components/Header.vue";
+import Heading from "@/components/Heading.vue"
 </script>
 
 <template>
-  <div>
-    <Header></Header>
-    <!--  <nav>-->
-    <!--    <RouterLink to="/">Dashboard Overview</RouterLink>-->
-    <!--    <RouterLink to="/about">User Listing</RouterLink>-->
-    <!--  </nav>-->
-    <nav-bar></nav-bar>
-    <main>
-      <section></section>
+  <div class="d-flex h-100">
+    <nav-bar class="float-start"></nav-bar>
+    <main class="float-end content w-100">
+      <Heading :title="'Dashboard'" class="mb-4"></Heading>
+      <RouterView />
     </main>
-    <footer></footer>
-
-
-    <RouterView />
   </div>
+  <footer></footer>
+
+
+
 </template>
 
 <style scoped>
+  .content {
+    height: 100%;
+    padding: 12px;
+  }
 </style>

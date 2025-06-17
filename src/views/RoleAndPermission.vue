@@ -1,10 +1,11 @@
 <script setup lang="ts">
 
+import UnderConstruction from "@/components/UnderConstruction.vue";
 </script>
 
 <template>
-  <div class="container">
-    <p>this is Role and Permission</p>
+  <div>
+    <UnderConstruction></UnderConstruction>
   </div>
 </template>
 
