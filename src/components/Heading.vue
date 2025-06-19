@@ -14,11 +14,13 @@ const route = useRoute();
 
 <template>
   <Card class="card-container">
-    <template #title>{{route.meta.title}}</template>
+    <template #title>
+      {{route.meta.title}}
+    </template>
     <template #content>
-      <p class="m-0 text-muted">
+      <small class="m-0 whitespace-nowrap text-muted max-w-full">
         {{route.meta.subTitle}}
-      </p>
+      </small>
     </template>
   </Card>
 </template>

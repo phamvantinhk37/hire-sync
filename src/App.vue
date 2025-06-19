@@ -7,7 +7,7 @@ import Heading from "@/components/Heading.vue"
 <template>
   <div class="d-flex h-100">
     <nav-bar class="float-start"></nav-bar>
-    <main class="float-end content w-100">
+    <main class="float-end content w-100 overflow-auto">
       <Heading :title="'Dashboard'" class="mb-4"></Heading>
       <RouterView />
     </main>

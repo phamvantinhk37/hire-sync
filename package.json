@@ -19,6 +19,7 @@
     "@popperjs/core": "^2.11.8",
     "@primeuix/themes": "^1.1.1",
     "@vueuse/core": "^13.3.0",
+    "axios": "^1.10.0",
     "bootstrap": "^5.3.6",
     "pinia": "^3.0.1",
     "primeicons": "^7.0.0",
@@ -28,6 +29,7 @@
   },
   "devDependencies": {
     "@tsconfig/node22": "^22.0.1",
+    "@types/jquery": "^3.5.32",
     "@types/jsdom": "^21.1.7",
     "@types/node": "^22.14.0",
     "@vitejs/plugin-vue": "^5.2.3",

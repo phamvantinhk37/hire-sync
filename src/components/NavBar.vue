@@ -1,3 +1,72 @@
+<script setup lang="ts">
+import {onMounted, ref} from "vue";
+import {Avatar, MegaMenu, Button, Panel} from "primevue";
+import {useRoute} from "vue-router";
+import logo from "../assets/logo.svg"
+
+const items = ref( [
+  {
+    label: "Overview Dashboard",
+    to: "/",
+    icon: "pi pi-home",
+  },
+  {
+    label: "Users",
+    to: "/user-listing",
+    icon: "pi pi-users",
+  },
+  {
+    label: "Job Listings",
+    to: "/job-listing",
+    icon: "pi pi-briefcase",
+  },
+  {
+    label: "Companies",
+    to: "/company-listing",
+    icon: "pi pi-building",
+  },
+  {
+    label: "Feedback / Reviews",
+    to: "/feedback",
+    icon: "pi pi-book",
+  },
+  {
+    label: "Job Applications",
+    to: "/job-application",
+    icon: "pi pi-file-pdf",
+  },
+  {
+    label: "Role & Permissions",
+    to: "/role-permission",
+    icon: "pi pi-key",
+  },
+  {
+    label: "Settings",
+    to: "/setting",
+    icon: "pi pi-cog",
+  },
+]);
+const isExpand = ref(true);
+const sidebarElement = ref(null);
+const windowWidth =ref(0);
+const router = useRoute();
+onMounted(() => {
+  window.addEventListener('resize', onResize);
+})
+const isActive = (item) => {
+  // Example: Check if the item's 'to' matches the current route
+  return router.path === item.to;
+};
+const toggle = () => {
+  return isExpand.value = !isExpand.value;
+}
+const onResize = () => {
+  windowWidth.value = window.innerWidth;
+  isExpand.value = windowWidth.value > 768;
+  console.log('windowWidth.value', windowWidth.value);
+}
+</script>
+
 <template>
   <MegaMenu ref="sidebarElement" class="mega-menu-container"
             :class="{'collapse-sidebar': !isExpand}"
@@ -50,68 +119,6 @@
     </template>
   </MegaMenu>
 </template>
-
-<script setup lang="ts">
-import { ref } from "vue";
-import { useElementSize } from '@vueuse/core';
-import {Avatar, MegaMenu, Button, Panel} from "primevue";
-import {useRoute} from "vue-router";
-import logo from "../assets/logo.svg"
-
-const items = ref( [
-  {
-    label: "Overview Dashboard",
-    to: "/",
-    icon: "pi pi-home",
-  },
-  {
-    label: "Users",
-    to: "/user-listing",
-    icon: "pi pi-users",
-  },
-  {
-    label: "Job Listings",
-    to: "/job-listing",
-    icon: "pi pi-briefcase",
-  },
-  {
-    label: "Companies",
-    to: "/company-listing",
-    icon: "pi pi-building-columns",
-  },
-  {
-    label: "Feedback / Reviews",
-    to: "/feedback",
-    icon: "pi pi-book",
-  },
-  {
-    label: "Job Applications",
-    to: "/job-application",
-    icon: "pi pi-file-pdf",
-  },
-  {
-    label: "Role & Permissions",
-    to: "/role-permission",
-    icon: "pi pi-key",
-  },
-  {
-    label: "Settings",
-    to: "/setting",
-    icon: "pi pi-cog",
-  },
-]);
-const isExpand = ref(true);
-const sidebarElement = ref(null);
-const { width } = useElementSize(sidebarElement);
-const router = useRoute();
-const isActive = (item) => {
-  // Example: Check if the item's 'to' matches the current route
-  return router.path === item.to;
-};
-const toggle = () => {
-  return isExpand.value = !isExpand.value;
-}
-</script>
 
 <style>
 .mega-menu-container {

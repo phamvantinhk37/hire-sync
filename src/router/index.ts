@@ -15,7 +15,7 @@ const router = createRouter({
     {
       path: '/user-listing',
       name: 'userListing',
-      meta: { title: 'Users' },
+      meta: { title: 'Users', subTitle: 'The system displays a list of all registered users for easy management' },
       component: () => import('../views/UserListing.vue'),
     },
     {
