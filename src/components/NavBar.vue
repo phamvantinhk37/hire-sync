@@ -54,7 +54,7 @@ onMounted(() => {
   window.addEventListener('resize', onResize);
   isExpand.value = isMobileMode();
 })
-const isActive = (item) => {
+const isActive = (item: Record<string, string>) => {
   // Example: Check if the item's 'to' matches the current route
   return router.path === item.to;
 };

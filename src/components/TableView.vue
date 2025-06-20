@@ -3,19 +3,52 @@ import { ref, onMounted } from 'vue';
 import { UserService } from '@/services/UserService';
 import { CommonService } from '@/services/CommonService';
 import { FilterMatchMode, FilterOperator } from '@primevue/core/api';
-import {DataTable, Column, InputText, IconField, InputIcon, Button, Avatar } from "primevue";
+import {
+  DataTable,
+  Column,
+  InputText,
+  IconField,
+  InputIcon,
+  Button,
+  Avatar,
+  type DataTableFilterEvent
+} from "primevue";
 import noData from "@/assets/noData.svg";
 
+interface user {
+  "id": number,
+  "name": string,
+  "username": string,
+  "email": string,
+  "address": {
+    "street": string,
+    "suite": string,
+    "city": string,
+    "zipcode": string,
+    "geo": {
+      "lat": string,
+      "lng": string
+    }
+  },
+  fullAddress: string,
+  "phone": string,
+  "website": string,
+  "company": {
+    "name": string,
+    "catchPhrase": string,
+    "bs": string
+  }
+}
 const users = ref();
 const filters = ref();
-const filterData = ref([]);
+const filterData = ref();
 const loading = ref(true);
 
 onMounted(() => {
   UserService.getAllUsers()
     .then((response) => {
       users.value = response.data;
-      users.value.map((user: any) => {
+      users.value.map((user: user) => {
         user.fullAddress = `${user.address.street}, ${user.address.suite}, ${user.address.city}`;
         return user
       })
@@ -52,8 +85,8 @@ initFilters();
 const clearFilter = () => {
   initFilters();
 };
-const getFilterData = (event) => {
-  filterData.value = event.filteredValue;
+const getFilterData = (event: DataTableFilterEvent) => {
+  filterData.value = event['filteredValue'];
 }
 </script>
 
