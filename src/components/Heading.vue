@@ -18,7 +18,8 @@ const route = useRoute();
       {{route.meta.title}}
     </template>
     <template #content>
-      <small class="m-0 whitespace-nowrap text-muted max-w-full">
+      <small class="m-0 text-muted w-100 text-truncate d-block"
+             v-tooltip="{value: route.meta.subTitle}">
         {{route.meta.subTitle}}
       </small>
     </template>

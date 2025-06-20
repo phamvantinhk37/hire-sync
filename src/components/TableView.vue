@@ -14,7 +14,6 @@ const loading = ref(true);
 onMounted(() => {
   UserService.getAllUsers()
     .then((response) => {
-      console.log(response.data);
       users.value = response.data;
       users.value.map((user: any) => {
         user.fullAddress = `${user.address.street}, ${user.address.suite}, ${user.address.city}`;
@@ -29,7 +28,6 @@ onMounted(() => {
 });
 // const setRandomColor = () => {
 //   const avatarElement = document.getElementById('avatar');
-//   console.log(avatarElement);
 //   if (avatarElement) {
 //     avatarElement.style.backgroundColor = CommonService.getRandomColor();
 //     avatarElement.style.color = CommonService.getRandomColor();
@@ -92,7 +90,7 @@ const getFilterData = (event) => {
                     label="Clear" outlined @click="clearFilter()" />
           </div>
           <div class="col">
-            <IconField class="float-end">
+            <IconField class="float-end search-field">
               <InputIcon>
                 <i class="pi pi-search" />
               </InputIcon>
@@ -258,4 +256,34 @@ const getFilterData = (event) => {
   .table-container .p-select-label {
     padding: 6px;
   }
+  @media only screen and (max-width: 576px) {
+    .table-container .p-paginator {
+      justify-content: center;
+    }
+    .table-container .p-paginator-content {
+      border: solid 1px #e2e8f0;
+      border-radius: 1rem;
+      justify-content: space-between;
+      width: 100%;
+    }
+    .table-container .p-paginator-content .p-select {
+      display: none;
+    }
+    .table-container .p-paginator-first {
+      display: none;
+    }
+    .table-container .p-paginator-last {
+      display: none;
+    }
+    .table-container .p-paginator-next {
+      font-size: 16px;
+    }
+    .table-container .search-field {
+      width: 100%;
+    }
+    .table-container .search-field {
+      width: 100%;
+    }
+  }
+
 </style>

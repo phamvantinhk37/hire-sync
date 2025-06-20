@@ -52,6 +52,7 @@ const windowWidth =ref(0);
 const router = useRoute();
 onMounted(() => {
   window.addEventListener('resize', onResize);
+  isExpand.value = isMobileMode();
 })
 const isActive = (item) => {
   // Example: Check if the item's 'to' matches the current route
@@ -63,13 +64,16 @@ const toggle = () => {
 const onResize = () => {
   windowWidth.value = window.innerWidth;
   isExpand.value = windowWidth.value > 768;
-  console.log('windowWidth.value', windowWidth.value);
+}
+const isMobileMode = () => {
+  windowWidth.value = window.innerWidth;
+  return windowWidth.value > 768;
 }
 </script>
 
 <template>
   <MegaMenu ref="sidebarElement" class="mega-menu-container"
-            :class="{'collapse-sidebar': !isExpand}"
+            :class="[{'collapse-sidebar': !isExpand}]"
             :breakpoint="'0'"
             :model="items" orientation="vertical">
     <template #start>
@@ -106,7 +110,8 @@ const onResize = () => {
         <template #header>
           <div class="d-flex">
             <div class="d-flex justify-content-center flex-column"
-                 :class="{'me-2' : isExpand}">
+                 :class="{'me-2' : isExpand}"
+                 v-tooltip="{value: 'Amy Elsner America@gmail.com', disabled: isExpand}">
               <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
             </div>
             <div class="d-flex flex-column" v-if="isExpand">
@@ -148,6 +153,7 @@ const onResize = () => {
 .mega-menu-container .p-megamenu-end {
   position: absolute;
   bottom: 0;
+  left: 20px;
 }
 .mega-menu-container .p-panel-header {
   padding-left: 0;
@@ -191,5 +197,11 @@ const onResize = () => {
 .mega-menu-container .p-megamenu-item-content .active i {
   color: #000;
   font-weight: bold;
+}
+@media only screen and (max-width: 768px) {
+  .mega-menu-container:not(.collapse-sidebar) {
+    position: absolute !important;
+    width: 300px !important;
+  }
 }
 </style>
