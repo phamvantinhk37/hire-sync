@@ -35,19 +35,28 @@ Production link: https://hire-sync-6dze.vercel.app/
 
 ### Prerequisites
 
-Node.js version 18.3 or higher.
-Browsers with native ES2016 (ES6) support
+- Node.js version 18.3 or higher. 
+- Browsers with native ES2016 (ES6) support
 
 ### Tech Stack
 
-Client: vuejs 3.x.x, primevue 4.x.x, bootstrap 5.x.x, axios: 1.10.x, pinia: 3.x.x
-Deploy: Vercel
+- Client: 
+  - vuejs 3.x.x, 
+  - primevue 4.x.x, 
+  - bootstrap 5.x.x, 
+  - axios: 1.10.x, 
+  - pinia: 3.x.x 
+- Deploy: Vercel
 
 ### Usage/Examples
 
 1. Clone Code From Repository
+
+```sh
+git clone <repository_link>
+```
+
 2. Go to Project directory
-3. 
 ```sh
 cd <project_directory>/sync-hire
 ```
