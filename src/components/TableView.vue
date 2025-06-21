@@ -39,7 +39,7 @@ interface user {
     "bs": string
   }
 }
-const users = ref();
+const users = ref([]);
 const filters = ref();
 const filterData = ref();
 const loading = ref(true);
@@ -57,15 +57,7 @@ onMounted(() => {
   }).finally(() => {
     loading.value = false;
   });
-  // setRandomColor();
 });
-// const setRandomColor = () => {
-//   const avatarElement = document.getElementById('avatar');
-//   if (avatarElement) {
-//     avatarElement.style.backgroundColor = CommonService.getRandomColor();
-//     avatarElement.style.color = CommonService.getRandomColor();
-//   }
-// }
 const initFilters = () => {
   filters.value = {
     global: { value: null, matchMode: FilterMatchMode.CONTAINS },
@@ -281,10 +273,13 @@ const getFilterData = (event: DataTableFilterEvent) => {
     background: rgba(0, 0, 0, 0.4);
     color: #e2e8f0;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: -19px;
+    left: -19px;
+    right: -19px;
+    bottom: -19px;
+    width: calc(100% + 38px) !important;
+    height: calc(100% + 38px) !important;
+    border-radius: 6px;
   }
   .table-container .p-select-label {
     padding: 6px;

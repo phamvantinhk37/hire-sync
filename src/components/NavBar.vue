@@ -131,6 +131,7 @@ const isMobileMode = () => {
   height: 100%;
   position: fixed;
   display: flex;
+  z-index: 88;
   padding: 1rem !important;
   row-gap: 2rem !important;
   border-radius: 12px !important;
